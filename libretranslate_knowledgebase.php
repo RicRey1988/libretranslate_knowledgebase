@@ -66,20 +66,21 @@ function getLibreTranslateConfig() {
     $result = select_query(
         'tbladdonmodules',
         'value',
-        ["module" => "libretranslate_knowledgebase", "setting" => ["api_base", "api_key"]]
+        ["module" => "libretranslate_knowledgebase", "setting" => ["serverUrl", "apiKey"]]
     );
 
     $config = [];
     while ($data = mysql_fetch_array($result)) {
-        if ($data['setting'] == 'api_base') {
-            $config['api_base'] = $data['value'];
-        } elseif ($data['setting'] == 'api_key') {
-            $config['api_key'] = $data['value'];
+        if ($data['setting'] == 'serverUrl') {
+            $config['serverUrl'] = $data['value'];
+        } elseif ($data['setting'] == 'apiKey') {
+            $config['apiKey'] = $data['value'];
         }
     }
 
     return $config;
 }
+
 
 function libretranslate_knowledgebase_clientarea($vars) {
     $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
