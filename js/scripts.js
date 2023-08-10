@@ -31,7 +31,8 @@ function translateAndReplace(content, language, element) {
     console.log("Intentando realizar la solicitud AJAX...");
     console.log("webRoot:", webRoot);
 
-    fetch(`${webRoot}/modules/addons/libretranslate_knowledgebase/`)
+//    fetch(`${webRoot}/modules/addons/libretranslate_knowledgebase/`)
+fetch(`/shop/modules/addons/libretranslate_knowledgebase/translate.php`)
     .then(response => {
         console.log("Respuesta recibida:", response);
         return response.json();
