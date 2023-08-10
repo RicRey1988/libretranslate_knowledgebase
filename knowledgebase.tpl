@@ -14,11 +14,9 @@
     </div>
     <div class="section kb-categories">
         <div class="section-header">
-            <h2 class="section-title">{$LANG.knowledgebasecategories} <select id="languageSelector">
-    <option value="en">English</option>
-    <option value="es">Español</option>
-    <!-- Add other languages as needed -->
-</select></h2>
+            <h2 class="section-title">{$LANG.knowledgebasecategories} <button id="translateToEnglish">English</button>
+<button id="translateToSpanish">Espa���ol</button>
+</h2>
 
         </div>
         <div class="section-body">

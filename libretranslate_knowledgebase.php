@@ -48,8 +48,8 @@ function translateText($text, $language) {
     // Obtener la configuración del módulo
     $moduleConfig = getLibreTranslateConfig();
 
-    $apiBase = $moduleConfig['serverUrl'];
-    $apiKey = $moduleConfig['apiKey'];
+    $apiBase = $moduleConfig['api_base'];
+    $apiKey = $moduleConfig['api_key'];
 
     $libreTranslate = new Jefs42\LibreTranslate($apiBase);
     $libreTranslate->setApiKey($apiKey);

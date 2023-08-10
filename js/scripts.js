@@ -28,17 +28,27 @@ console.log("Cambio de idioma detectado");
     }
 });
 function translateAndReplace(content, language, element) {
-    fetch(`${webRoot}/modules/addons/libretranslate_knowledgebase/`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `action=translate&text=${encodeURIComponent(content)}&language=${language}`
+    console.log("Intentando realizar la solicitud AJAX...");
+    console.log("webRoot:", webRoot);
+
+    fetch(`${webRoot}/modules/addons/libretranslate_knowledgebase/`)
+    .then(response => {
+        console.log("Respuesta recibida:", response);
+        return response.json();
     })
-    .then(response => response.json())
     .then(data => {
-        if (data.translatedText) {
-            element.innerText = data.translatedText;
-        }
+        console.log("Datos recibidos:", data);
+    })
+    .catch(error => {
+        console.log("Error al realizar la solicitud:", error);
     });
 }
+document.getElementById('translateToEnglish').addEventListener('click', function() {
+    console.log("Intentando traducir al inglés...");
+    translateAndReplace(/* parámetros relevantes */);
+});
+
+document.getElementById('translateToSpanish').addEventListener('click', function() {
+    console.log("Intentando traducir al español...");
+    translateAndReplace(/* parámetros relevantes */);
+});

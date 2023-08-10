@@ -15,3 +15,4 @@ add_hook('ClientAreaFooterOutput', 1, function($vars) {
     </script>
 HTML;
 });
+
