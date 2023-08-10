@@ -1,0 +1,28 @@
+/* Estilos para el selector de idioma y otros elementos relacionados con la traducción */
+/*#languageSelector {
+     Estilos para el selector de idioma */
+/*}*/
+        /* Estilos básicos para el contenedor y los botones */
+        .language-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .language-button {
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        /* Estilos para las banderas (puedes reemplazar las URLs con las de tus propias imágenes) */
+        .flag-en {
+            background-image: url('path_to_english_flag.png');
+            background-size: cover;
+            width: 20px;
+            height: 15px;
+        }
+        .flag-es {
+            background-image: url('path_to_spanish_flag.png');
+            background-size: cover;
+            width: 20px;
+            height: 15px;
+        }
