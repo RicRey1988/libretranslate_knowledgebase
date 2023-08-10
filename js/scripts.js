@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (languageSelector) {
         languageSelector.addEventListener('change', function() {
             const selectedLanguage = this.value;
-
+console.log("Cambio de idioma detectado");
             // Traducir títulos y descripciones de las categorías
             const categoryTitles = document.querySelectorAll('.kb-category .h5');
             const categoryDescriptions = document.querySelectorAll('.kb-category .text-muted');
