@@ -8,6 +8,10 @@ add_hook('ClientAreaPageKnowledgebase', 1, function($vars) {
 });
 
 add_hook('ClientAreaFooterOutput', 1, function($vars) {
-    // Aquí puedes agregar código para modificar el pie de página de la base de conocimientos.
-    // Por ejemplo, puedes agregar scripts adicionales que se cargarán en el pie de página.
+    $webRoot = rtrim($vars['WEB_ROOT'], '/');
+    return <<<HTML
+    <script>
+        var webRoot = "{$webRoot}";
+    </script>
+HTML;
 });

@@ -27,9 +27,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
-
 function translateAndReplace(content, language, element) {
-    fetch('{$WEB_ROOT}/modules/addons/libretranslate_knowledgebase/', {
+    fetch(`${webRoot}/modules/addons/libretranslate_knowledgebase/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
