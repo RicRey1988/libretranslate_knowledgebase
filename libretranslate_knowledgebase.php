@@ -44,12 +44,12 @@ function libretranslate_knowledgebase_output($vars) {
 }
 
 // Modifica la función translateText para obtener los valores de configuración
-function translateText($text, $language) {
+/*function translateText($text, $language) {
     // Obtener la configuración del módulo
     $moduleConfig = getLibreTranslateConfig();
 
-    $apiBase = $moduleConfig['api_base'];
-    $apiKey = $moduleConfig['api_key'];
+    $apiBase = $moduleConfig['serverUrl'];
+    $apiKey = $moduleConfig['apiKey'];
 
     $libreTranslate = new Jefs42\LibreTranslate($apiBase);
     $libreTranslate->setApiKey($apiKey);
@@ -59,10 +59,10 @@ function translateText($text, $language) {
     } catch (Exception $e) {
         return "Error: " . $e->getMessage();
     }
-}
+}*/
 
 // Función para obtener la configuración del módulo
-function getLibreTranslateConfig() {
+/*function getLibreTranslateConfig() {
     $result = select_query(
         'tbladdonmodules',
         'value',
@@ -79,7 +79,7 @@ function getLibreTranslateConfig() {
     }
 
     return $config;
-}
+}*/
 
 
 function libretranslate_knowledgebase_clientarea($vars) {

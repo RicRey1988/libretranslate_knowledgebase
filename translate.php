@@ -10,8 +10,8 @@ function translateText($text, $language) {
     // Obtener la configuración del módulo
     $moduleConfig = getLibreTranslateConfig();
 
-    $apiBase = $moduleConfig['api_base'];
-    $apiKey = $moduleConfig['api_key'];
+$apiBase = $moduleConfig['api_base'];
+$apiKey = $moduleConfig['api_key'];
 
     $libreTranslate = new Jefs42\LibreTranslate($apiBase);
     $libreTranslate->setApiKey($apiKey);
@@ -43,8 +43,10 @@ function getLibreTranslateConfig() {
     return $config;
 }
 
-$text = $_POST['text'];
-$language = $_POST['language'];
+//$text = $_POST['text'];
+//$language = $_POST['language'];
+$text = isset($_POST['text']) ? $_POST['text'] : '';
+$language = isset($_POST['language']) ? $_POST['language'] : '';
 $translatedText = translateText($text, $language);
 
 header('Content-Type: application/json');
