@@ -14,9 +14,10 @@
     </div>
     <div class="section kb-categories">
         <div class="section-header">
-            <h2 class="section-title">{$LANG.knowledgebasecategories} <button id="translateToEnglish">English</button>
-<button id="translateToSpanish">Espaï¿½ï¿½ï¿½ol</button>
-</h2>
+            <h2 class="section-title">{$LANG.knowledgebasecategories} <!-- Agregar los botones de traducción -->
+<button class="translateButton" data-language="en">English</button>
+<button class="translateButton" data-language="es">Español</button>
+<!-- Agregar otros botones para otros idiomas según sea necesario --></h2>
 
         </div>
         <div class="section-body">
@@ -63,5 +64,43 @@
         </div>
     {/if}
 {/if}
-<link rel="stylesheet" href=" {$WEB_ROOT}/modules/addons/libretranslate_knowledgebase/css/styles.css">
-<script src=" {$WEB_ROOT}/modules/addons/libretranslate_knowledgebase/js/scripts.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var translateButtons = document.querySelectorAll('.translateButton');
+        translateButtons.forEach(function(button) {
+            button.addEventListener('click', function() {
+                var language = this.getAttribute('data-language');
+                var contentElement = document.getElementById('contentArea');
+                
+                // Verificar si el elemento existe
+                if (!contentElement) {
+                    console.error('El elemento con ID "contentArea" no se encontró.');
+                    return;
+                }
+
+                var contentToTranslate = contentElement.innerText;
+
+                // Hacer la llamada a LibreTranslate
+                fetch('https://traductor.hostingsupremo.org/translate', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer 62869fe6-5da3-4a8a-8b3e-fb29eac35f13'
+                    },
+                    body: JSON.stringify({
+                        q: contentToTranslate,
+                        source: 'en',
+                        target: language
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    contentElement.innerText = data.translatedText;
+                })
+                .catch(error => {
+                    console.error('Error al traducir el contenido:', error);
+                });
+            });
+        });
+    });
+</script>
